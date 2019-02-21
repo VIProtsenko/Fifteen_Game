@@ -3,6 +3,8 @@
 #include <string>
 #include <time.h>
 #include <windows.h>
+#include <math.h>
+#include <conio.h>
 
 using namespace std;
 
@@ -137,19 +139,21 @@ void GamePlay()
 	do
 	{
 		
-		char step;
+		/*char step;*/
 		system("cls");
 		ShowGame_place();
-		do
+	/*	do
 		{
 			cout << "Сделайте ход. \nВверх\t- W\nВниз\t- S\nВправо\t- A\nВлево\t- D" << endl;
 			cin >> step;
 		} while (step == 'w' && step == 's' && step == 'a' && step == 'd');
 
-		switch (step)
+*/			
+		char symbol = _getch();
+		switch (char symbol = _getch())
 		{
-		case 'w':
-		{
+		case (char)72:
+		{//вверх
 
 			for (int i = 0; i < N; i++)
 			{
@@ -167,8 +171,8 @@ void GamePlay()
 		}
 		break;
 
-		case 's':
-		{
+		case (char)80:
+		{ // низ
 			int per = 0;
 			for (int i = 0; i < N; i++)
 			{
@@ -191,7 +195,7 @@ void GamePlay()
 		}
 		break;
 
-		case 'a':
+		case (char)75:
 		{
 			for (int i = 0; i < N; i++)
 			{
@@ -209,7 +213,7 @@ void GamePlay()
 		}
 		break;
 
-		case 'd':
+		case (char)77:
 		{
 			for (int i = 0; i < N; i++)
 			{
