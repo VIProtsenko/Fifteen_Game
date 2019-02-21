@@ -33,8 +33,6 @@ int main() {
 
 	MixGame_place();
 
-	//ShowGame_place();
-
 	GamePlay();
 
 	GameWin();
@@ -75,10 +73,10 @@ void MixGame_place()
 	{
 		for (int j = 0; j < N; j++)
 		{
-			x1 = rand() % 1;
-			y1 = rand() % 1;
-			x2 = rand() % 1;
-			y2 = rand() % 1;
+			x1 = rand() % 4;
+			y1 = rand() % 4;
+			x2 = rand() % 4;
+			y2 = rand() % 4;
 			temp = game_place[x1][y1];
 			game_place[x1][y1] = game_place[x2][y2];
 			game_place[x2][y2] = temp;
@@ -93,7 +91,15 @@ void ShowGame_place()
 	{
 		for (int j = 0; j < N; j++)
 		{
-			cout << game_place[i][j] << "\t";
+			if (game_place[i][j]<=9)
+			{
+				cout << game_place[i][j] << "  | ";
+			}
+			else if (game_place[i][j] > 9)
+			{
+				cout << game_place[i][j] << " | ";
+			}
+			
 		}
 		cout << endl;
 	}
@@ -127,9 +133,10 @@ void GameWin()
 
 void GamePlay()
 {
+	Sleep(3000);
 	do
 	{
-		Sleep(3000);
+		
 		char step;
 		system("cls");
 		ShowGame_place();
